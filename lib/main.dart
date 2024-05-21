@@ -48,7 +48,9 @@ class MyHomePage extends StatelessWidget {
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: showBottomSheet(context, false, null),
+            builder: (context) {
+              return showBottomSheet(context, false, null);
+            },
           );
         },
         child: const Icon(Icons.add),
@@ -107,10 +109,11 @@ showBottomSheet(
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.9,
           child: TextField(
+            controller: isUpdate
+                ? TextEditingController(text: documentSnapshot?['todo'])
+                : TextEditingController(),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
-              // Used a ternary operator to check if isUpdate is true then display
-              // Update Todo.
               labelText: isUpdate ? 'Update Todo' : 'Add Todo',
               hintText: 'Enter An Item',
             ),
