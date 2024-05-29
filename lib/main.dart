@@ -5,23 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/common/toastr.dart';
+import 'package:flutter_application_1/config/firebase_option.dart';
 import 'package:flutter_application_1/login.dart';
 
 void main() async {
   // firebase initialization
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-        apiKey: 'AIzaSyDkLnGU_zd_L_JoXvYPhRIqHhOaAJ_NIVk',
-        authDomain: 'tugas2-a8340.firebaseapp.com',
-        databaseURL:
-            'https://tugas2-a8340-default-rtdb.asia-southeast1.firebasedatabase.app',
-        projectId: "tugas2-a8340",
-        storageBucket: "tugas2-a8340.appspot.com",
-        messagingSenderId: "713883959807",
-        appId: "1:713883959807:web:52ef505c70bc9888ed27ca",
-        measurementId: "G-JH87ST87MP"),
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 
@@ -195,7 +186,7 @@ showBottomSheet(
           width: MediaQuery.of(context).size.width * 0.9,
           child: TextField(
             controller: isUpdate
-                ? TextEditingController(text: documentSnapshot?['nama'])
+                ? TextEditingController(text: documentSnapshot?['todo'])
                 : TextEditingController(),
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
@@ -221,8 +212,8 @@ showBottomSheet(
                 });
               } else {
                 db
-                    .collection('catatan')
-                    .add({'nama': value, 'tanggal': DateTime.now()});
+                    .collection('todos')
+                    .add({'todo': value, 'tanggal': DateTime.now()});
                 addDataRealTime(value!);
               }
               Navigator.pop(context);
