@@ -5,8 +5,6 @@ import 'package:flutter_application_1/common/toastr.dart';
 import 'package:flutter_application_1/config/firebase_auth_service.dart';
 import 'package:flutter_application_1/signup.dart';
 import 'package:flutter_application_1/widget/form_container_widget.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -88,7 +86,7 @@ class _LoginState extends State<Login> {
               ),
               GestureDetector(
                 onTap: () {
-                  _signInWithGoogle();
+
                 },
                 child: Container(
                   width: double.infinity,
@@ -180,27 +178,4 @@ class _LoginState extends State<Login> {
     }
   }
 
-  _signInWithGoogle() async {
-    final GoogleSignIn _googleSignIn = GoogleSignIn();
-
-    try {
-      final GoogleSignInAccount? googleSignInAccount =
-          await _googleSignIn.signIn();
-
-      if (googleSignInAccount != null) {
-        final GoogleSignInAuthentication googleSignInAuthentication =
-            await googleSignInAccount.authentication;
-
-        final AuthCredential credential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken,
-        );
-
-        await _firebaseAuth.signInWithCredential(credential);
-        Navigator.pushNamed(context, "/home");
-      }
-    } catch (e) {
-      showToast(message: "some error occured $e");
-    }
-  }
 }

@@ -5,14 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/common/toastr.dart';
+import 'package:flutter_application_1/config/firebase_notification.dart';
 import 'package:flutter_application_1/config/firebase_option.dart';
 import 'package:flutter_application_1/login.dart';
+
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+import 'package:permission_handler/permission_handler.dart';
+
+Future<void> _messageHandler(RemoteMessage message) async {
+  print('background message ${message.notification!.body}');
+}
 
 void main() async {
   // firebase initialization
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+  if (await Permission.notification.request().isGranted) {
+    await NotificationService().initNotifications();
+    await NotificationService().getToken();
+  }
+  FirebaseMessaging.onBackgroundMessage(_messageHandler);
   runApp(const MyApp());
 }
 
@@ -76,6 +89,35 @@ class _MyHomePageState extends State<MyHomePage> {
         print('User is signed in! oke ' + email);
       }
     });
+
+    //fcm notification
+    // get token firebase
+
+    FirebaseMessaging.instance.getToken().then((String? token) {
+      print('FIREBASE: $token');
+    });
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage event) {
+      print("message recieved");
+      print(event.notification!.body);
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text(event.notification!.title!),
+              content: Text(event.notification!.body!),
+              actions: [
+                TextButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    });
+
   }
 
   @override
