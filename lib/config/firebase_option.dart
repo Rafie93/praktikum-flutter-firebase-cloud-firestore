@@ -36,32 +36,35 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    storageBucket: '.appspot.com',
+    apiKey: 'AIzaSyDkLnGU_zd_L_JoXvYPhRIqHhOaAJ_NIVk',
+    authDomain: 'tugas2-a8340.firebaseapp.com',
+    databaseURL:
+        'https://tugas2-a8340-default-rtdb.asia-southeast1.firebasedatabase.app',
+    appId: '1:713883959807:web:52ef505c70bc9888ed27ca',
+    messagingSenderId: '713883959807',
+    projectId: 'tugas2-a8340',
+    storageBucket: 'tugas2-a8340.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    storageBucket: '.appspot.com',
+    apiKey: 'AIzaSyDkLnGU_zd_L_JoXvYPhRIqHhOaAJ_NIVk',
+    authDomain: 'tugas2-a8340.firebaseapp.com',
+    databaseURL:
+        'https://tugas2-a8340-default-rtdb.asia-southeast1.firebasedatabase.app',
+    appId: '1:713883959807:web:52ef505c70bc9888ed27ca',
+    messagingSenderId: '713883959807',
+    projectId: 'tugas2-a8340',
+    storageBucket: 'tugas2-a8340.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: '',
-    authDomain: '.firebaseapp.com',
-    databaseURL: '',
-    appId: '',
-    messagingSenderId: '',
-    projectId: '',
-    storageBucket: '.appspot.com',
+    apiKey: 'AIzaSyDkLnGU_zd_L_JoXvYPhRIqHhOaAJ_NIVk',
+    authDomain: 'tugas2-a8340.firebaseapp.com',
+    databaseURL:
+        'https://tugas2-a8340-default-rtdb.asia-southeast1.firebasedatabase.app',
+    appId: '1:713883959807:web:52ef505c70bc9888ed27ca',
+    messagingSenderId: '713883959807',
+    projectId: 'tugas2-a8340',
+    storageBucket: 'tugas2-a8340.appspot.com',
   );
 }

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "713883959807",
+    "firebase_url": "https://tugas2-a8340-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tugas2-a8340",
+    "storage_bucket": "tugas2-a8340.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713883959807:android:bb706eb34192c866ed27ca",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713883959807-baep5hmscv5rqarnmafjeinb9hr29efj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHi9wdMlygWPJs718LGKim314-bfJFh68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713883959807-baep5hmscv5rqarnmafjeinb9hr29efj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713883959807:android:352bc5f6041e1516ed27ca",
+        "android_client_info": {
+          "package_name": "com.rafie.praktek_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713883959807-baep5hmscv5rqarnmafjeinb9hr29efj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHi9wdMlygWPJs718LGKim314-bfJFh68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713883959807-baep5hmscv5rqarnmafjeinb9hr29efj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
